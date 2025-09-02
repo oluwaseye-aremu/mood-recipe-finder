@@ -144,6 +144,18 @@ const sampleDishes = [
 const FALLBACK_IMG = '/img?url=' + encodeURIComponent('https://source.unsplash.com/400x300/?food,dish,meal');
 
 function proxied(url) {
+	try {
+		const parsed = new URL(url);
+		const hostname = parsed.hostname || '';
+		const pathAndQuery = `${parsed.pathname || ''}${parsed.search || ''}`;
+		const isPinterest = /(^|\.)pinimg\.com$/i.test(hostname) || /pinterest/i.test(hostname);
+		if (isPinterest) {
+			const upstream = `${hostname}${pathAndQuery}`; // scheme-less per Weserv requirement
+			return 'https://images.weserv.nl/?url=' + encodeURIComponent(upstream);
+		}
+	} catch (_) {
+		// Fall through to default proxy
+	}
 	return '/img?url=' + encodeURIComponent(url);
 }
 function imgTag(src, alt, classes) {

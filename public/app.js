@@ -141,22 +141,20 @@ const sampleDishes = [
 	{ name: 'Pancake Stack', desc: 'Maple syrup drizzle.', price: 2000, img: 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' }
 ];
 
-const FALLBACK_IMG = '/img?url=' + encodeURIComponent('https://source.unsplash.com/400x300/?food,dish,meal');
+const FALLBACK_IMG = 'https://images.weserv.nl/?url=' + encodeURIComponent('source.unsplash.com/400x300/?food,dish,meal');
 
 function proxied(url) {
 	try {
+		if (typeof url !== 'string' || url.length === 0) return FALLBACK_IMG;
+		if (/^https?:\/\/images\.weserv\.nl\//i.test(url)) return url; // already proxied
 		const parsed = new URL(url);
-		const hostname = parsed.hostname || '';
-		const pathAndQuery = `${parsed.pathname || ''}${parsed.search || ''}`;
-		const isPinterest = /(^|\.)pinimg\.com$/i.test(hostname) || /pinterest/i.test(hostname);
-		if (isPinterest) {
-			const upstream = `${hostname}${pathAndQuery}`; // scheme-less per Weserv requirement
-			return 'https://images.weserv.nl/?url=' + encodeURIComponent(upstream);
-		}
+		const upstream = `${parsed.hostname || ''}${parsed.pathname || ''}${parsed.search || ''}`;
+		return 'https://images.weserv.nl/?url=' + encodeURIComponent(upstream);
 	} catch (_) {
-		// Fall through to default proxy
+		const stripped = String(url).replace(/^https?:\/\//i, '');
+		if (stripped) return 'https://images.weserv.nl/?url=' + encodeURIComponent(stripped);
+		return FALLBACK_IMG;
 	}
-	return '/img?url=' + encodeURIComponent(url);
 }
 function imgTag(src, alt, classes) {
 	return `<img src="${proxied(src)}" alt="${alt}" class="${classes}" onerror="this.onerror=null;this.src='${FALLBACK_IMG}';" />`;

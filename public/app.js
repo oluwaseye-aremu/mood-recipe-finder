@@ -131,14 +131,14 @@ document.addEventListener('click', (e) => {
 
 // Sample dish data for gallery and dropdowns
 const sampleDishes = [
-	{ name: 'Jollof Rice', desc: 'Smoky party-style rice.', price: 3500, img: 'https://images.unsplash.com/photo-1604908553650-6a164aa2ee12?auto=format&fit=crop&w=800&q=80' },
-	{ name: 'Suya Skewers', desc: 'Spicy grilled beef sticks.', price: 2800, img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80' },
-	{ name: 'Pounded Yam & Egusi', desc: 'Hearty melon soup delight.', price: 4200, img: 'https://images.unsplash.com/photo-1604908553675-4d9ef6ed6b04?auto=format&fit=crop&w=800&q=80' },
-	{ name: 'Chicken Shawarma', desc: 'Creamy, spicy wrap.', price: 2500, img: 'https://images.unsplash.com/photo-1606756790138-261d2b21cd29?auto=format&fit=crop&w=800&q=80' },
-	{ name: 'Seafood Pasta', desc: 'Rich tomato seafood mix.', price: 5500, img: 'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=800&q=80' },
-	{ name: 'Avocado Toast', desc: 'Fresh and zesty.', price: 1800, img: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80' },
-	{ name: 'Grilled Salmon', desc: 'Lemon herb glaze.', price: 6200, img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80' },
-	{ name: 'Pancake Stack', desc: 'Maple syrup drizzle.', price: 2000, img: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=80' }
+	{ name: 'Jollof Rice', desc: 'Smoky party-style rice.', price: 3500, img: 'https://images.pexels.com/photos/6210961/pexels-photo-6210961.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' },
+	{ name: 'Suya Skewers', desc: 'Spicy grilled beef sticks.', price: 2800, img: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' },
+	{ name: 'Pounded Yam & Egusi', desc: 'Hearty melon soup delight.', price: 4200, img: 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' },
+	{ name: 'Chicken Shawarma', desc: 'Creamy, spicy wrap.', price: 2500, img: 'https://images.pexels.com/photos/1095550/pexels-photo-1095550.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' },
+	{ name: 'Seafood Pasta', desc: 'Rich tomato seafood mix.', price: 5500, img: 'https://images.pexels.com/photos/3296271/pexels-photo-3296271.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' },
+	{ name: 'Avocado Toast', desc: 'Fresh and zesty.', price: 1800, img: 'https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' },
+	{ name: 'Grilled Salmon', desc: 'Lemon herb glaze.', price: 6200, img: 'https://images.pexels.com/photos/3296271/pexels-photo-3296271.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' },
+	{ name: 'Pancake Stack', desc: 'Maple syrup drizzle.', price: 2000, img: 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1' }
 ];
 
 const FALLBACK_IMG = '/img?url=' + encodeURIComponent('https://source.unsplash.com/400x300/?food,dish,meal');
